@@ -1,10 +1,10 @@
-from flask import Flask_WRONG, jsonify, render_template
+from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return "Hello CI/CD"
 
 @app.route("/api/status")
 def status():

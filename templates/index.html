@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CI/CD Pipeline Project</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(to right, #0f172a, #020617);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: #1e293b;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      width: 400px;
+    }
+    button {
+      padding: 12px 20px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>CI/CD Pipeline</h1>
+    <p>Python Backend + Cloud DevOps</p>
+    <button onclick="checkBackend()">Check Backend</button>
+    <p id="result"></p>
+  </div>
+
+ <script>
+  function checkBackend() {
+    fetch("/api/status")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("result").innerText = data.status;
+      })
+      .catch(() => {
+        document.getElementById("result").innerText = "Backend not reachable ❌";
+      });
+  }
+</script>
+
+</body>
+</html>

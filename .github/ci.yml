@@ -3,8 +3,6 @@ name: Python CI Pipeline
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
@@ -24,7 +22,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install flask
 
-    - name: Run application test
+    - name: Run Flask app
       run: |
         python app.py &
         sleep 5
